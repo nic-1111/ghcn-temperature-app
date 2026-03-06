@@ -6,17 +6,17 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - CACHE_DIR=/cache
-      - METADATA_TTL_SEC=604800
-      - STATION_TTL_SEC=2592000
-      - STATION_CACHE_LIMIT=5
-      - HTTP_TIMEOUT_SEC=60
+      CACHE_DIR: /cache
+      METADATA_TTL_SEC: 604800
+      STATION_TTL_SEC: 2592000
+      STATION_CACHE_LIMIT: 5
+      HTTP_TIMEOUT_SEC: 60
     volumes:
       - cache:/cache
     restart: unless-stopped
 
   frontend:
-    image: ghcr.io/alisamandaceaca/ghcn-temperature-frontend:buildcache
+    image: ghcr.io/alisamandaceaca/ghcn-temperature-frontend:latest
     ports:
       - "8080:80"
     depends_on:
