@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   api:
-    build: https://github.com/vivienke/ghcn-temperature-api
+    build: docker pull ghcr.io/vivienke/ghcn-temperature-api:latest
     ports:
       - "8000:8000"
     environment:
@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    build: https://github.com/AlisAmandaCeaca/ghcn-temperature-frontend
+    build: docker pull ghcr.io/alisamandaceaca/ghcn-temperature-frontend:buildcache
     ports:
       - "8080:80"
     depends_on:
