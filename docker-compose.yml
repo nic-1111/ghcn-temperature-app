@@ -5,6 +5,9 @@ services:
     image: ghcr.io/vivienke/ghcn-temperature-api:latest
     ports:
       - "8000:8000"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1  
     environment:
       CACHE_DIR: /cache
       METADATA_TTL_SEC: 604800
